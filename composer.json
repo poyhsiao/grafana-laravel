@@ -1,0 +1,54 @@
+{
+    "name": "poyhsiao/grafana-laravel",
+    "description": "Grafana plugin for laravel",
+    "keywords": ["laravel", "grafana", "wrap", "api"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Kim Hsiao",
+            "email": "white.shopping@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "laravel/laravel": ">=7",
+        "guzzlehttp/guzzle": "~6.3"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.9.1",
+        "phpunir/phpunit": "^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Poyhsiao\\Grafana\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Poyhsiao\\Grafana\\Tests\\": "tests"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-master": "develop"
+        },
+        "laravel": {
+            "providers": [
+                "Poyhsiao\\Grafana\\ServiceProvider"
+            ],
+            "alias": {
+                "Grafana": "Poyhsiao\\Grafana\\Facade"
+            }
+        }
+    },
+    "scripts": {
+        "check-style": "phpcs -p --standard=PSR12 config/ src/ tests/",
+        "fix-style": "phpcbf -p --standard=PSR12 config/ src/ tests/",
+        "test": "phpunit"
+    }
+}
